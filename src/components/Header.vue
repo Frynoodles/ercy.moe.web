@@ -1,8 +1,15 @@
+<script setup lang="ts">
+// 按顺序执行，要放在前头
+const searchText=()=>{
+    (<HTMLInputElement>document.getElementById('search-ercy')).value = '点击测试';
+}
+</script>
 <template>
     <div>
         <div class="header">
             <div class="header-content">
 
+                <!-- 左侧 -->
                 <div class="left-content">
                     <div class="logo item-wrapper  content-box">
                         <a href="http://ercy.moe/">
@@ -11,35 +18,48 @@
                     </div>
                 </div>
 
+                <!-- 中间 -->
                 <div class="center-content">
                     <div class="menu-bar item-wrapper  content-box">
                         <div class="menu-item">
-                            <a href="">首 页</a>
-                        </div>
-                        <div class="menu-item dividing-line">
+                            <a href="">首页</a>
                         </div>
                         <div class="menu-item">
-                            <a href="">学 习 笔 记</a>
-                        </div>
-                        <div class="menu-item dividing-line">
+                            <a href="">笔记</a>
                         </div>
                         <div class="menu-item">
-                            <a href="">收 藏 夹</a>
+                            <a href="">收藏</a>
                         </div>
                     </div>
                 </div>
 
+                <!-- 搜索框 -->
+                <div class="search-box-wrapper">
+                    <!-- 在这里放个搜索框吧 -->
+                    <div class="search-box">
+                        <input type="text" name="search-ercy" id="search-ercy">
+                        <div class="button-box" @click="searchText"><img src="../icons/搜索.png"></div>
+                    </div>
+                </div>
+
+                <!-- 音乐播放器 -->
+                <div class="music-player-box">
+                    <!-- 在这放个音乐播放器吧 -->
+                </div>
+
+                <!-- 右侧 -->
                 <div class="right-content">
                     <div class="media-links item-wrapper content-box">
-                        <div class="face">
-                            <img src="../icons/face.jpg" class="media-icon" id="face-icon">
-                        </div>
+
                         <div class="media-link">
                             <a href="https://space.bilibili.com/29325500"><img src="../icons/icon_bilibili.png"
                                     class="media-icon"></a>
                         </div>
                         <div class="media-link">
                             <a href="https://github.com/Frynoodles"><img src="../icons/github.png" class="media-icon"></a>
+                        </div>
+                        <div class="face">
+                            <img src="../icons/face.jpg" class="media-icon" id="face-icon">
                         </div>
                     </div>
                 </div>
@@ -49,12 +69,7 @@
     </div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue'
-export default defineComponent({
-    name: "header_pannel",
-})
-</script>
+
 
 <style scoped lang="less">
 // scoped 限制css只在当前作用域生效
@@ -64,7 +79,7 @@ export default defineComponent({
 .header {
     width: 100%;
     background-color: white;
-    height: 60px;
+    height: 50px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -72,9 +87,9 @@ export default defineComponent({
 
     .header-content {
         display: flex;
-        justify-content: space-evenly; // 水平方向 具体自己查
+        justify-content: start; // 水平方向 具体自己查
         align-items: center; // 垂直方向 居中
-        width: 80%;
+        width: 85%;
         height: 100%;
 
         .content-box {
@@ -99,14 +114,13 @@ export default defineComponent({
         .center-content {
             display: flex;
             justify-content: center;
-            width: 40%;
+            width: 20%;
             height: 100%;
 
             .menu-bar {
                 display: flex;
                 justify-content: space-evenly;
                 width: 70%;
-                font-size: 40px;
 
                 .menu-item {
                     display: flex;
@@ -114,24 +128,76 @@ export default defineComponent({
 
                     a {
                         text-decoration: none;
-                        color: black;
-                        font-size: 25px;
-                        font-weight: bold;
+                        color: rgba(0, 0, 0, 0.719);
+                        font-size: 20px;
+                        font-weight: lighter;
                         font-family: "KuaiLe";
+                    }
+                    a:hover{
+                        color: aqua;
                     }
                 }
 
-                .dividing-line {
-                    user-select: none;
-                    height: 90%;
-                    width: 1px;
-                    background-color: black;
-                }
+
             }
         }
 
+        .music-player-box {
+            height: 100%;
+            width: 25%;
+        }
+
+        .search-box-wrapper {
+            height: 100%;
+            width: 35%;
+            display: flex;
+            align-items: center;
+
+            .search-box {
+                width: 100%;
+                display: flex;
+                justify-content: start;
+                align-items: center;
+                border-radius: 10px;
+                border-style: none;
+                background-color: rgba(0, 0, 0, 0.4);
+                height: 35px;
+
+
+                input#search-ercy {
+                    height: 30px;
+                    width: 100%;
+                    padding-left: 5px;
+                    background-color: rgba(255, 205, 205, 0);
+                    border-style: none;
+                    border-radius: 20px;
+                    font-size: 18px;
+                    outline: none;
+                }
+
+                .button-box {
+                    height: 30px;
+                    width: 30px;
+                    margin: 10px;
+                    background-color: rgba(0, 0, 0, 0);
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    img{
+                        height: 20px;
+                        width: 20px;
+                    }
+                    img:hover{
+                        height: 25px;
+                        width: 25px;
+                    }
+                }
+            }
+
+        }
+
         .right-content {
-            width: 160px;
+            width: 200px;
 
             .media-links {
                 display: flex;
@@ -139,8 +205,8 @@ export default defineComponent({
                 justify-content: space-around;
 
                 img.media-icon {
-                    height: 40px;
-                    width: 40px;
+                    height: 30px;
+                    width: 30px;
                 }
 
                 img#face-icon {

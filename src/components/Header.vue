@@ -1,6 +1,6 @@
 <script setup lang="ts">
 // 按顺序执行，要放在前头
-const searchText=()=>{
+const searchText = () => {
     (<HTMLInputElement>document.getElementById('search-ercy')).value = '点击测试';
 }
 </script>
@@ -29,6 +29,9 @@ const searchText=()=>{
                         </div>
                         <div class="menu-item">
                             <a href="">收藏</a>
+                        </div>
+                        <div class="menu-item">
+                            <a href="">工具</a>
                         </div>
                     </div>
                 </div>
@@ -78,7 +81,7 @@ const searchText=()=>{
 
 .header {
     width: 100%;
-    background-color: white;
+    background-color: rgba(255, 255, 255, 0.5);
     height: 50px;
     display: flex;
     justify-content: center;
@@ -133,7 +136,8 @@ const searchText=()=>{
                         font-weight: lighter;
                         font-family: "KuaiLe";
                     }
-                    a:hover{
+
+                    a:hover {
                         color: aqua;
                     }
                 }
@@ -183,11 +187,13 @@ const searchText=()=>{
                     display: flex;
                     justify-content: center;
                     align-items: center;
-                    img{
+                    cursor: pointer;
+                    img {
                         height: 20px;
                         width: 20px;
                     }
-                    img:hover{
+
+                    img:hover {
                         height: 25px;
                         width: 25px;
                     }

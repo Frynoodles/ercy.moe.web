@@ -7,7 +7,7 @@ import Footer from './components/Footer.vue';
   document.addEventListener('visibilitychange', function () {
     if (!document.hidden) {
       // 处于当前页面
-      document.title = "你所热爱的就是你的生活"
+      document.title = "摆烂"
     } else {
       // 不在当前页面
       document.title = "(*^▽^*) ~~ 摸鱼"

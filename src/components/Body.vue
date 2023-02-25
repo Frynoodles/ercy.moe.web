@@ -10,6 +10,7 @@
             <div class="column-box" id="right-box">
                 <div class="white-box"></div>
                 <div class="white-box"></div>
+                <img src="https://raw.githubusercontent.com/Frynoodles/frynoodles/main/%E9%A9%AC%E6%81%A9%E5%88%97%E6%96%AF%E6%AF%9B.jpg" alt="">
             </div>
         </div>
     </div>
